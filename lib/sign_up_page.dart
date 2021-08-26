@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quire_clone/colours.dart';
 import 'package:quire_clone/login_page.dart';
+import 'package:quire_clone/submit_page.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -88,7 +89,16 @@ class _SignUpPageState extends State<SignUpPage> {
                     style: ElevatedButton.styleFrom(
                       primary: kGreenColour,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => SubmitPage(
+                            email: _emailController.text,
+                          ),
+                        ),
+                      );
+                    },
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 12.0),
                       child: Text('GET STARTED'),
