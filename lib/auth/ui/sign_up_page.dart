@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:quire_clone/colours.dart';
-import 'package:quire_clone/login_page.dart';
-import 'package:quire_clone/submit_page.dart';
+import 'package:quire_clone/core/colours.dart';
+import 'package:quire_clone/auth/ui/login_page.dart';
+import 'package:quire_clone/auth/ui/submit_page.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);

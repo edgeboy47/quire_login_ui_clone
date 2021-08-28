@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:quire_clone/colours.dart';
-import 'package:quire_clone/login_page.dart';
-import 'package:quire_clone/sign_up_page.dart';
+import 'package:quire_clone/core/colours.dart';
+import 'package:quire_clone/auth/ui/login_page.dart';
+import 'package:quire_clone/auth/ui/sign_up_page.dart';
 
 class Onboarding extends StatefulWidget {
   const Onboarding({Key? key}) : super(key: key);

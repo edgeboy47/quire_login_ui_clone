@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:quire_clone/colours.dart';
-import 'package:quire_clone/password_recovery_page.dart';
-import 'package:quire_clone/sign_up_page.dart';
+import 'package:quire_clone/core/colours.dart';
+import 'package:quire_clone/auth/ui/password_recovery_page.dart';
+import 'package:quire_clone/auth/ui/sign_up_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);

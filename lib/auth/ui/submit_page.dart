@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quire_clone/colours.dart';
+import 'package:quire_clone/core/colours.dart';
 
 class SubmitPage extends StatefulWidget {
   const SubmitPage({
