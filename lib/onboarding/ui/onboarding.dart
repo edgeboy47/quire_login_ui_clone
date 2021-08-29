@@ -20,14 +20,16 @@ class _OnboardingState extends State<Onboarding> {
       child: IntroductionScreen(
         isProgress: !isLastPage,
         onChange: (index) {
-          if (index == 4)
+          if (index == 4) {
             setState(() {
               isLastPage = !isLastPage;
             });
-          if (index != 4 && isLastPage)
+          }
+          if (index != 4 && isLastPage) {
             setState(() {
               isLastPage = !isLastPage;
             });
+          }
         },
         globalFooter: isLastPage
             ? Row(
@@ -45,7 +47,7 @@ class _OnboardingState extends State<Onboarding> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => SignUpPage(),
+                              builder: (_) => const SignUpPage(),
                             ),
                           );
                         },
@@ -53,7 +55,7 @@ class _OnboardingState extends State<Onboarding> {
                           primary: kGreenColour,
                           elevation: 0,
                         ),
-                        child: Text('Sign Up'),
+                        child: const Text('Sign Up'),
                       ),
                     ),
                   ),
@@ -70,19 +72,18 @@ class _OnboardingState extends State<Onboarding> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => LoginPage(),
+                              builder: (_) => const LoginPage(),
                             ),
                           );
                         },
                         style: ElevatedButton.styleFrom(
                           primary: Colors.white,
                           elevation: 0,
-                          side: BorderSide(
+                          side: const BorderSide(
                             color: kGreenColour,
-                            width: 1,
                           ),
                         ),
-                        child: Text(
+                        child: const Text(
                           'Log in',
                           style: TextStyle(
                             color: kGreenColour,
@@ -94,17 +95,16 @@ class _OnboardingState extends State<Onboarding> {
                 ],
               )
             : Container(),
-        dotsDecorator: DotsDecorator(
+        dotsDecorator: const DotsDecorator(
           activeColor: kGreenColour,
           color: Colors.white,
           shape: CircleBorder(
             side: BorderSide(
               color: kGreenColour,
-              width: 1,
             ),
           ),
         ),
-        next: Text(
+        next: const Text(
           'Next',
           style: TextStyle(
             color: kGreenColour,
@@ -121,35 +121,35 @@ class _OnboardingState extends State<Onboarding> {
         pages: [
           PageViewModel(
             title: '',
-            bodyWidget: OnboardingPage(
+            bodyWidget: const OnboardingPage(
               headerText: 'Welcome to Quire.',
               subText: 'Unfold your ideas.',
             ),
           ),
           PageViewModel(
             title: '',
-            bodyWidget: OnboardingPage(
+            bodyWidget: const OnboardingPage(
               headerText: 'From start to finish',
               subText: 'Swipe left or right to complete, delete or add a task.',
             ),
           ),
           PageViewModel(
             title: '',
-            bodyWidget: OnboardingPage(
+            bodyWidget: const OnboardingPage(
               headerText: 'Streamline your workflow',
               subText: 'Focus on selected tasks with Kanban board.',
             ),
           ),
           PageViewModel(
             title: '',
-            bodyWidget: OnboardingPage(
+            bodyWidget: const OnboardingPage(
               headerText: 'Map out timeline',
               subText: 'Plan ahead with a versatile Gantt chart.',
             ),
           ),
           PageViewModel(
             title: '',
-            bodyWidget: OnboardingPage(
+            bodyWidget: const OnboardingPage(
               headerText: 'Get into action',
               subText:
                   'Add assignees, tags, due dates, etc., to get started with your project.',
@@ -175,14 +175,14 @@ class OnboardingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Placeholder(),
+        const Placeholder(),
         Padding(
           padding: const EdgeInsets.only(
             top: 24.0,
           ),
           child: Text(
             headerText,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
               fontSize: 16,
@@ -197,7 +197,7 @@ class OnboardingPage extends StatelessWidget {
           child: Text(
             subText,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.black54,
               fontSize: 12,
             ),

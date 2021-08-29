@@ -29,7 +29,7 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
             color: Colors.black,
           ),
@@ -38,8 +38,7 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
           },
         ),
         backgroundColor: Colors.white,
-        title: Align(
-          alignment: Alignment.center,
+        title: const Align(
           child: Text(
             'Forgot password',
             style: TextStyle(
@@ -52,13 +51,13 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: SingleChildScrollView(
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             child: Column(
               children: [
-                Align(
+                const Align(
                   alignment: Alignment.centerLeft,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    padding: EdgeInsets.symmetric(vertical: 16.0),
                     child: Text(
                       'Forgot your password?',
                       style: TextStyle(
@@ -68,12 +67,12 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
                     ),
                   ),
                 ),
-                Align(
+                const Align(
                   alignment: Alignment.centerLeft,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    padding: EdgeInsets.symmetric(vertical: 16.0),
                     child: Text(
-                      'Don\'t worry! Enter your email address and we will send you a link to reset your password.',
+                      "Don't worry! Enter your email address and we will send you a link to reset your password.",
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
@@ -82,7 +81,7 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
                     ),
                   ),
                 ),
-                Align(
+                const Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Email',
@@ -98,11 +97,11 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
                   child: TextFormField(
                     controller: _emailController,
                     cursorColor: kGreenColour,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       focusedBorder: UnderlineInputBorder(
                         borderSide: BorderSide(
                           color: kGreenColour,
-                          width: 1,
+
                         ),
                       ),
                     ),
@@ -115,8 +114,8 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
                       primary: kGreenColour,
                     ),
                     onPressed: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 12.0),
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 12.0),
                       child: Text('Submit'),
                     ),
                   ),

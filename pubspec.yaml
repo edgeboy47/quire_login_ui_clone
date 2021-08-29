@@ -24,6 +24,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   freezed: ^0.14.2
+  lint: ^1.6.0
 
 flutter:
   uses-material-design: true

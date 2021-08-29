@@ -31,7 +31,7 @@ class _SignUpPageState extends State<SignUpPage> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.close,
             color: Colors.black,
           ),
@@ -40,8 +40,8 @@ class _SignUpPageState extends State<SignUpPage> {
           },
         ),
         backgroundColor: Colors.white,
-        title: Align(
-          alignment: Alignment.center,
+        title: const Align(
+
           child: Text(
             'Sign up',
             style: TextStyle(
@@ -54,10 +54,10 @@ class _SignUpPageState extends State<SignUpPage> {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: SingleChildScrollView(
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             child: Column(
               children: [
-                Align(
+                const Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Email',
@@ -73,11 +73,11 @@ class _SignUpPageState extends State<SignUpPage> {
                   child: TextFormField(
                     controller: _emailController,
                     cursorColor: kGreenColour,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       focusedBorder: UnderlineInputBorder(
                         borderSide: BorderSide(
                           color: kGreenColour,
-                          width: 1,
+                        
                         ),
                       ),
                     ),
@@ -99,15 +99,15 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                       );
                     },
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 12.0),
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 12.0),
                       child: Text('GET STARTED'),
                     ),
                   ),
                 ),
-                OrDivider(),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                const OrDivider(),
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 8.0),
                   child: LoginButton(
                     text: 'Sign up with Google',
                     color: Colors.white60,
@@ -118,8 +118,8 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 8.0),
                   child: LoginButton(
                     text: 'Sign up with Apple',
                     icon: FaIcon(
@@ -130,8 +130,8 @@ class _SignUpPageState extends State<SignUpPage> {
                     textColor: Colors.white,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 24.0, bottom: 8),
+                const Padding(
+                  padding: EdgeInsets.only(top: 24.0, bottom: 8),
                   child: Divider(
                     thickness: 1,
                   ),
@@ -141,7 +141,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16.0),
                     child: RichText(
-                      text: TextSpan(
+                      text: const TextSpan(
                         style: TextStyle(
                           color: Colors.black26,
                           fontSize: 12,
@@ -168,7 +168,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
                 Row(
                   children: [
-                    Text(
+                    const Text(
                       'Already have an account? ',
                       style: TextStyle(
                         color: Colors.black54,
@@ -180,11 +180,11 @@ class _SignUpPageState extends State<SignUpPage> {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (_) => LoginPage(),
+                            builder: (_) => const LoginPage(),
                           ),
                         );
                       },
-                      child: Text(
+                      child: const Text(
                         'Log in.',
                         style: TextStyle(
                           color: kGreenColour,

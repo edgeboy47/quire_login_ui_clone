@@ -40,7 +40,7 @@ class _SubmitPageState extends State<SubmitPage> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
             color: Colors.black,
           ),
@@ -49,8 +49,7 @@ class _SubmitPageState extends State<SubmitPage> {
           },
         ),
         backgroundColor: Colors.white,
-        title: Align(
-          alignment: Alignment.center,
+        title: const Align(
           child: Text(
             'Sign up',
             style: TextStyle(
@@ -63,13 +62,13 @@ class _SubmitPageState extends State<SubmitPage> {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: SingleChildScrollView(
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             child: Column(
               children: [
-                Align(
+                const Align(
                   alignment: Alignment.centerLeft,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 4.0),
+                    padding: EdgeInsets.symmetric(vertical: 4.0),
                     child: Text(
                       'Hi there!',
                       style: TextStyle(
@@ -79,12 +78,12 @@ class _SubmitPageState extends State<SubmitPage> {
                     ),
                   ),
                 ),
-                Align(
+                const Align(
                   alignment: Alignment.centerLeft,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    padding: EdgeInsets.symmetric(vertical: 16.0),
                     child: Text(
-                      'Let\'s get your account ready now!',
+                      "Let's get your account ready now!",
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
@@ -93,7 +92,7 @@ class _SubmitPageState extends State<SubmitPage> {
                     ),
                   ),
                 ),
-                Align(
+                const Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Email',
@@ -109,17 +108,16 @@ class _SubmitPageState extends State<SubmitPage> {
                   child: TextFormField(
                     controller: _emailController,
                     cursorColor: kGreenColour,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       focusedBorder: UnderlineInputBorder(
                         borderSide: BorderSide(
                           color: kGreenColour,
-                          width: 1,
                         ),
                       ),
                     ),
                   ),
                 ),
-                Align(
+                const Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Name',
@@ -135,17 +133,16 @@ class _SubmitPageState extends State<SubmitPage> {
                   child: TextFormField(
                     controller: _nameController,
                     cursorColor: kGreenColour,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       focusedBorder: UnderlineInputBorder(
                         borderSide: BorderSide(
                           color: kGreenColour,
-                          width: 1,
                         ),
                       ),
                     ),
                   ),
                 ),
-                Align(
+                const Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Password',
@@ -162,11 +159,10 @@ class _SubmitPageState extends State<SubmitPage> {
                     obscureText: true,
                     controller: _passwordController,
                     cursorColor: kGreenColour,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       focusedBorder: UnderlineInputBorder(
                         borderSide: BorderSide(
                           color: kGreenColour,
-                          width: 1,
                         ),
                       ),
                     ),
@@ -179,8 +175,8 @@ class _SubmitPageState extends State<SubmitPage> {
                       primary: kGreenColour,
                     ),
                     onPressed: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 12.0),
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 12.0),
                       child: Text('Submit'),
                     ),
                   ),

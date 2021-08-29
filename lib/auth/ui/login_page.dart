@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.close,
             color: Colors.black,
           ),
@@ -43,8 +43,7 @@ class _LoginPageState extends State<LoginPage> {
           },
         ),
         backgroundColor: Colors.white,
-        title: Align(
-          alignment: Alignment.center,
+        title: const Align(
           child: Text(
             'Log in',
             style: TextStyle(
@@ -57,10 +56,10 @@ class _LoginPageState extends State<LoginPage> {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: SingleChildScrollView(
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             child: Column(
               children: [
-                Align(
+                const Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Email',
@@ -76,11 +75,10 @@ class _LoginPageState extends State<LoginPage> {
                   child: TextFormField(
                     controller: _emailController,
                     cursorColor: kGreenColour,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       focusedBorder: UnderlineInputBorder(
                         borderSide: BorderSide(
                           color: kGreenColour,
-                          width: 1,
                         ),
                       ),
                     ),
@@ -89,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       'Password',
                       style: TextStyle(
                         fontSize: 12,
@@ -102,11 +100,11 @@ class _LoginPageState extends State<LoginPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (_) => PasswordRecoveryPage(),
+                            builder: (_) => const PasswordRecoveryPage(),
                           ),
                         );
                       },
-                      child: Text(
+                      child: const Text(
                         'Forgot?',
                         style: TextStyle(
                           fontSize: 12,
@@ -122,11 +120,10 @@ class _LoginPageState extends State<LoginPage> {
                   child: TextFormField(
                     controller: _passwordController,
                     cursorColor: kGreenColour,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       focusedBorder: UnderlineInputBorder(
                         borderSide: BorderSide(
                           color: kGreenColour,
-                          width: 1,
                         ),
                       ),
                     ),
@@ -139,15 +136,15 @@ class _LoginPageState extends State<LoginPage> {
                       primary: kGreenColour,
                     ),
                     onPressed: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 12.0),
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 12.0),
                       child: Text('Log in'),
                     ),
                   ),
                 ),
-                OrDivider(),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                const OrDivider(),
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 8.0),
                   child: LoginButton(
                     text: 'Sign in with Google',
                     color: Colors.white60,
@@ -158,8 +155,8 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 8.0),
                   child: LoginButton(
                     text: 'Sign in with Apple',
                     icon: FaIcon(
@@ -170,16 +167,16 @@ class _LoginPageState extends State<LoginPage> {
                     textColor: Colors.white,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 24.0, bottom: 8),
+                const Padding(
+                  padding: EdgeInsets.only(top: 24.0, bottom: 8),
                   child: Divider(
                     thickness: 1,
                   ),
                 ),
                 Row(
                   children: [
-                    Text(
-                      'Don\'t have an account yet? ',
+                    const Text(
+                      "Don't have an account yet? ",
                       style: TextStyle(
                         color: Colors.black45,
                         fontSize: 12,
@@ -190,11 +187,11 @@ class _LoginPageState extends State<LoginPage> {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (_) => SignUpPage(),
+                            builder: (_) => const SignUpPage(),
                           ),
                         );
                       },
-                      child: Text(
+                      child: const Text(
                         'Sign up. ',
                         style: TextStyle(
                           color: kGreenColour,
@@ -234,7 +231,7 @@ class LoginButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         primary: color,
         elevation: 0,
-        side: BorderSide(width: 0.5, color: kGreyColour),
+        side: const BorderSide(width: 0.5, color: kGreyColour),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5),
         ),
@@ -246,7 +243,6 @@ class LoginButton extends StatelessWidget {
             icon,
             Expanded(
               child: Align(
-                alignment: Alignment.center,
                 child: Text(
                   text,
                   style: TextStyle(
@@ -270,14 +266,14 @@ class OrDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: [
+      children: const [
         Expanded(
           child: Divider(
             thickness: 1,
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(
+          padding: EdgeInsets.symmetric(
             vertical: 24.0,
             horizontal: 48,
           ),

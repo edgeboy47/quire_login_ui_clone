@@ -3,7 +3,7 @@ import 'package:quire_clone/onboarding/ui/onboarding.dart';
 
 void main() {
   runApp(
-    MaterialApp(
+    const MaterialApp(
       home: Onboarding(),
     ),
   );
