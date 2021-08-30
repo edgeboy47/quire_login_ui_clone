@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:quire_clone/core/colours.dart';
@@ -23,6 +24,7 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
     _emailController.dispose();
     super.dispose();
   }
+  // TODO: Form validation
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class _PasswordRecoveryPageState extends State<PasswordRecoveryPage> {
             color: Colors.black,
           ),
           onPressed: () {
-            Navigator.pop(context);
+            AutoRouter.of(context).pop();
           },
         ),
         backgroundColor: Colors.white,

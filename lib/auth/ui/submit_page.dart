@@ -1,4 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quire_clone/auth/application/cubit/auth_cubit.dart';
 import 'package:quire_clone/core/colours.dart';
 
 class SubmitPage extends StatefulWidget {
@@ -35,6 +38,7 @@ class _SubmitPageState extends State<SubmitPage> {
     super.dispose();
   }
 
+  // TODO: Form validation
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +49,7 @@ class _SubmitPageState extends State<SubmitPage> {
             color: Colors.black,
           ),
           onPressed: () {
-            Navigator.pop(context);
+            AutoRouter.of(context).pop();
           },
         ),
         backgroundColor: Colors.white,
@@ -174,7 +178,14 @@ class _SubmitPageState extends State<SubmitPage> {
                     style: ElevatedButton.styleFrom(
                       primary: kGreenColour,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      BlocProvider.of<AuthCubit>(context)
+                          .signUpWithEmailAndPassword(
+                        _emailController.text,
+                        _passwordController.text,
+                        _nameController.text,
+                      );
+                    },
                     child: const Padding(
                       padding: EdgeInsets.symmetric(vertical: 12.0),
                       child: Text('Submit'),

@@ -1,6 +1,7 @@
+[![style: lint](https://img.shields.io/badge/style-lint-4BC0F5.svg)](https://pub.dev/packages/lint)
 # quire_clone
 
-A new Flutter project.
+CLone of Quire task management app built in Flutter.
 
 ## Getting Started
 

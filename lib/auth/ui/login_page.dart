@@ -1,8 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:quire_clone/auth/application/cubit/auth_cubit.dart';
 import 'package:quire_clone/core/colours.dart';
-import 'package:quire_clone/auth/ui/password_recovery_page.dart';
-import 'package:quire_clone/auth/ui/sign_up_page.dart';
+import 'package:quire_clone/core/router/app_router.gr.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -29,6 +31,7 @@ class _LoginPageState extends State<LoginPage> {
     super.dispose();
   }
 
+  // TODO: Form validation
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
             color: Colors.black,
           ),
           onPressed: () {
-            Navigator.pop(context);
+            AutoRouter.of(context).pop();
           },
         ),
         backgroundColor: Colors.white,
@@ -97,12 +100,8 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const PasswordRecoveryPage(),
-                          ),
-                        );
+                        AutoRouter.of(context)
+                            .push(const PasswordRecoveryPageRoute());
                       },
                       child: const Text(
                         'Forgot?',
@@ -118,6 +117,7 @@ class _LoginPageState extends State<LoginPage> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 32.0),
                   child: TextFormField(
+                    obscureText: true,
                     controller: _passwordController,
                     cursorColor: kGreenColour,
                     decoration: const InputDecoration(
@@ -135,7 +135,13 @@ class _LoginPageState extends State<LoginPage> {
                     style: ElevatedButton.styleFrom(
                       primary: kGreenColour,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      BlocProvider.of<AuthCubit>(context)
+                          .signInWithEmailAndPassword(
+                        _emailController.text,
+                        _passwordController.text,
+                      );
+                    },
                     child: const Padding(
                       padding: EdgeInsets.symmetric(vertical: 12.0),
                       child: Text('Log in'),
@@ -143,23 +149,27 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 const OrDivider(),
-                const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: LoginButton(
+                    onPressed: () {
+                      BlocProvider.of<AuthCubit>(context).signInWithGoogle();
+                    },
                     text: 'Sign in with Google',
                     color: Colors.white60,
                     textColor: Colors.black45,
-                    icon: FaIcon(
+                    icon: const FaIcon(
                       FontAwesomeIcons.google,
                       color: Colors.black45,
                     ),
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: LoginButton(
+                    onPressed: () {},
                     text: 'Sign in with Apple',
-                    icon: FaIcon(
+                    icon: const FaIcon(
                       FontAwesomeIcons.apple,
                       color: Colors.white,
                     ),
@@ -184,12 +194,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const SignUpPage(),
-                          ),
-                        );
+                        AutoRouter.of(context).replace(const SignUpPageRoute());
                       },
                       child: const Text(
                         'Sign up. ',
@@ -217,17 +222,19 @@ class LoginButton extends StatelessWidget {
     required this.icon,
     required this.color,
     required this.textColor,
+    this.onPressed,
   }) : super(key: key);
 
   final String text;
   final Color color;
   final Color textColor;
   final FaIcon icon;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         primary: color,
         elevation: 0,

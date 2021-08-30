@@ -1,10 +1,10 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:quire_clone/onboarding/ui/onboarding.dart';
+import 'package:quire_clone/app.dart';
 
-void main() {
-  runApp(
-    const MaterialApp(
-      home: Onboarding(),
-    ),
-  );
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
+  runApp(App());
 }

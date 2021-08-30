@@ -1,8 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:quire_clone/core/colours.dart';
-import 'package:quire_clone/auth/ui/login_page.dart';
-import 'package:quire_clone/auth/ui/sign_up_page.dart';
+import 'package:quire_clone/core/router/app_router.gr.dart';
 
 class Onboarding extends StatefulWidget {
   const Onboarding({Key? key}) : super(key: key);
@@ -44,12 +44,7 @@ class _OnboardingState extends State<Onboarding> {
                       ),
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => const SignUpPage(),
-                            ),
-                          );
+                          AutoRouter.of(context).push(const SignUpPageRoute());
                         },
                         style: ElevatedButton.styleFrom(
                           primary: kGreenColour,
@@ -69,12 +64,7 @@ class _OnboardingState extends State<Onboarding> {
                       ),
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => const LoginPage(),
-                            ),
-                          );
+                          AutoRouter.of(context).push(const LoginPageRoute());
                         },
                         style: ElevatedButton.styleFrom(
                           primary: Colors.white,

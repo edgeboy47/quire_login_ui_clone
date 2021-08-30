@@ -1,8 +1,12 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:quire_clone/auth/application/cubit/auth_cubit.dart';
 import 'package:quire_clone/core/colours.dart';
 import 'package:quire_clone/auth/ui/login_page.dart';
 import 'package:quire_clone/auth/ui/submit_page.dart';
+import 'package:quire_clone/core/router/app_router.gr.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -26,6 +30,7 @@ class _SignUpPageState extends State<SignUpPage> {
     super.dispose();
   }
 
+  // TODO: Form validation
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,12 +41,11 @@ class _SignUpPageState extends State<SignUpPage> {
             color: Colors.black,
           ),
           onPressed: () {
-            Navigator.pop(context);
+            AutoRouter.of(context).pop();
           },
         ),
         backgroundColor: Colors.white,
         title: const Align(
-
           child: Text(
             'Sign up',
             style: TextStyle(
@@ -77,7 +81,6 @@ class _SignUpPageState extends State<SignUpPage> {
                       focusedBorder: UnderlineInputBorder(
                         borderSide: BorderSide(
                           color: kGreenColour,
-                        
                         ),
                       ),
                     ),
@@ -90,14 +93,8 @@ class _SignUpPageState extends State<SignUpPage> {
                       primary: kGreenColour,
                     ),
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => SubmitPage(
-                            email: _emailController.text,
-                          ),
-                        ),
-                      );
+                      AutoRouter.of(context)
+                          .push(SubmitPageRoute(email: _emailController.text));
                     },
                     child: const Padding(
                       padding: EdgeInsets.symmetric(vertical: 12.0),
@@ -106,23 +103,27 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
                 const OrDivider(),
-                const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: LoginButton(
+                    onPressed: () {
+                      BlocProvider.of<AuthCubit>(context).signInWithGoogle();
+                    },
                     text: 'Sign up with Google',
                     color: Colors.white60,
                     textColor: Colors.black45,
-                    icon: FaIcon(
+                    icon: const FaIcon(
                       FontAwesomeIcons.google,
                       color: Colors.black45,
                     ),
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: LoginButton(
+                    onPressed: () {},
                     text: 'Sign up with Apple',
-                    icon: FaIcon(
+                    icon: const FaIcon(
                       FontAwesomeIcons.apple,
                       color: Colors.white,
                     ),
@@ -177,12 +178,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const LoginPage(),
-                          ),
-                        );
+                        AutoRouter.of(context).replace(const LoginPageRoute());
                       },
                       child: const Text(
                         'Log in.',
